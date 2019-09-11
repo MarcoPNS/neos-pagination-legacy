@@ -1,0 +1,35 @@
+-
+  name: 'pagination page = 1'
+  uriPattern: '{node}'
+  defaults:
+    '@package': 'Neos.Neos'
+    '@controller': 'Frontend\Node'
+    '@format': 'html'
+    '@action': 'show'
+    '--itemPaginator':
+      '@package': ''
+      '@subpackage': ''
+      '@controller': ''
+      '@action': 'index'
+      '@format': 'html'
+      'currentPage': ''
+  routeParts:
+    node:
+      handler: Flowpack\Neos\DimensionResolver\Routing\FrontendNodeRoutePartHandler
+-
+  name: 'pagination page > 1'
+  uriPattern: '{node}/page/{--itemPaginator.currentPage}'
+  defaults:
+    '@package': 'Neos.Neos'
+    '@controller': 'Frontend\Node'
+    '@format': 'html'
+    '@action': 'show'
+    '--itemPaginator':
+      '@package': ''
+      '@subpackage': ''
+      '@controller': ''
+      '@action': 'index'
+      '@format': 'html'
+  routeParts:
+    node:
+      handler: Flowpack\Neos\DimensionResolver\Routing\FrontendNodeRoutePartHandler

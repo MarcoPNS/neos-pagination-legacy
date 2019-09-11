@@ -1,0 +1,4 @@
+-
+  requestFilter: 'isPackage("Neos.ContentRepository") && isSubPackage("ViewHelpers\Widget") && isController("Paginate") && isAction("index")'
+  options:
+    templatePathAndFilename: 'resource://Your.Package/Private/Templates/NodeTypes/Paginate.html'

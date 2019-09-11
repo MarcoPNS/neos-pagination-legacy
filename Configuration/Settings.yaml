@@ -1,0 +1,9 @@
+# add this to your settings
+# Your.Package Routes.yaml should fire before Neos.Neos Routes.yaml (e.g. Pagination)
+
+Neos:
+  Flow:
+    mvc:
+      routes:
+        'Your.Package':
+          position: 'before Neos.Neos'

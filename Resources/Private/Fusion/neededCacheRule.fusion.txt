@@ -1,0 +1,44 @@
+#
+# Paginate Cache Rules
+# Neos cache recognizes an url with parameters as one page.
+# This means an overview page with several pages is cached as one page.
+# The result is that you cannot switch between page numbers.
+# I create a cache rule which takes care of the --itemPaginator parameter and reloads the cache when changed.
+#
+
+# add folowing to your node type
+
+    @cache {
+        mode = 'cached'
+        maximumLifetime = '86400'
+        entryIdentifier {
+            node = ${node}
+            nodePaginator = ${request.pluginArguments.itemPaginator.currentPage}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTag(node)}
+            2 = ${Neos.Caching.nodeTag(childNodes)}
+            3 = ${Neos.Caching.descendantOfTag(childNodes)}
+            4 = ${Neos.Caching.descendantOfTag(documentNode)}
+        }
+    }
+
+
+
+
+# add following outside of your node type
+
+prototype(Neos.Fusion:GlobalCacheIdentifiers) {
+    paginateArgument = ${request.httpRequest.arguments['--itemPaginator']['currentPage']}
+
+}
+
+root.@cache.entryIdentifier.nodePaginator = ${request.pluginArguments.itemPaginator.currentPage}
+
+prototype(Neos.Neos:Page) {
+@cache.entryIdentifier.nodePaginator = ${request.pluginArguments.itemPaginator.currentPage}
+}
+
+prototype(Neos.Neos:PrimaryContent).default {
+renderer.@cache.entryIdentifier.nodePaginator = ${request.pluginArguments.itemPaginator.currentPage}
+}
