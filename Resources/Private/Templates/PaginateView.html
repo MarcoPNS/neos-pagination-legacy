@@ -1,3 +1,7 @@
+<f:comment>
+    This is just a example how to use cr:widget.paginate. You can use in every template
+</f:comment>
+
 <cr:widget.paginate widgetId="itemPaginator" nodes="{nodes}" as="paginatedNodes" configuration="{itemsPerPage: paginationAmount}">
     <f:for each="{paginatedNodes}" as="item" iteration="iterator"><h1>{item.node.properties.title}</h1><br><p>Add your own MarkUp here</p></f:for>
 </cr:widget.paginate>
