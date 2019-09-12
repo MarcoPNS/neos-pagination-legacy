@@ -15,7 +15,7 @@
       'currentPage': ''
   routeParts:
     node:
-      handler: Flowpack\Neos\DimensionResolver\Routing\FrontendNodeRoutePartHandler
+      handler: Neos\Neos\Routing\FrontendNodeRoutePartHandler
 -
   name: 'pagination page > 1'
   uriPattern: '{node}/page/{--itemPaginator.currentPage}'
@@ -32,4 +32,4 @@
       '@format': 'html'
   routeParts:
     node:
-      handler: Flowpack\Neos\DimensionResolver\Routing\FrontendNodeRoutePartHandler
+      handler: Neos\Neos\Routing\FrontendNodeRoutePartHandler

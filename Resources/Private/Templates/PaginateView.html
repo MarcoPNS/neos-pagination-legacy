@@ -1,5 +1,7 @@
+{namespace cr=Neos\ContentRepository\ViewHelpers}
+
 <f:comment>
-    This is just a example how to use cr:widget.paginate. You can use in every template
+    This is just a example how to use cr:widget.paginate. You can use in every template. Please do not forget to use the namespace.
 </f:comment>
 
 <cr:widget.paginate widgetId="itemPaginator" nodes="{nodes}" as="paginatedNodes" configuration="{itemsPerPage: paginationAmount}">
